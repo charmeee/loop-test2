@@ -4,6 +4,7 @@
 
 | 파일 | 구현된 책임 |
 |---|---|
+| `scripts/run-loop.mjs` | 모든 열린 loop:ready 이슈 조회·순차 처리·전체 결과 요약 |
 | `scripts/setup-loop.mjs` | 공식 loop-init 호출, 두 패턴 분리·연결, 기존 설정 보존 |
 | `scripts/run-issue-loop.mjs` | GitHub 조회, 로컬 잠금·상태, Codex maker/checker, 검사, PR 쓰기·CI 대기 |
 | `scripts/loop/policy.mjs` | 실행 인자, 허용 경로, CI 판정, 이슈·PR 연결 판단 |

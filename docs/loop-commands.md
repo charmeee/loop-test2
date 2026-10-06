@@ -7,6 +7,10 @@
 npm run loop:setup
 # GitHub 이슈와 연결된 PR을 조회하고 상태만 기록합니다.
 npm run loop:report
+# 열린 loop:ready 이슈 전체를 순차 처리합니다. PR 머지·이슈 종료는 하지 않습니다.
+npm run loop
+# 전체 대상을 조회하되 AI 작업은 실행하지 않습니다.
+npm run loop -- --mode report
 # 이슈 하나를 실제 구현·검증하고 PR을 생성하거나 기존 PR을 관리합니다.
 npm run loop:start
 # 특정 이슈를 선택해 실행합니다. 머지나 이슈 종료는 하지 않습니다.
@@ -94,3 +98,15 @@ AI maker/checker는 GitHub 쓰기 작업을 지시받지 않으며 coordinator�
 PR 본문에 `Closes #N`을 사용하지만 **프로그램에는 PR merge/issue close 호출이 없습니다.** 나중에 사람이 PR을 머지하면 GitHub가 연결된 이슈를 닫을 수 있습니다. runner는 직접 머지·종료하지 않습니다.
 
 공식 근거: [Loop Engineering init](https://github.com/cobusgreyling/loop-engineering/tree/main/tools/loop-init), [PR Babysitter](https://github.com/cobusgreyling/loop-engineering/blob/main/patterns/pr-babysitter.md), [Codex 비대화형 실행](https://learn.chatgpt.com/docs/non-interactive-mode).
+
+## 전체 이슈 실행과 용어
+
+`npm run loop`는 `scripts/run-loop.mjs`를 실행합니다. 시작 시 모든 페이지의 열린 loop:ready 이슈를 조회하고 번호순으로 기존 단일 이슈 runner를 호출합니다. 동시에 처리하지 않고 순차 실행합니다. 기존 검증 완료 PR은 재확인하며 새 PR을 중복 생성하지 않습니다. needs-human 항목은 건너뛰고 요약에 남깁니다. 한 이슈 실패가 다른 이슈 처리를 막지는 않습니다. pause나 일일 예산처럼 공통 제한은 이후 작업에도 적용됩니다.
+
+결과는 `.loop-runtime/batch-summary.json`에 저장합니다. 보류·실패·pause가 있으면 전체 명령의 종료 코드는 1입니다. CI가 아직 대기라면 성공으로 표시하지 않고 waiting_ci로 남겨 다음 실행에서 확인합니다. 실행 중 추가된 새 이슈는 다음 실행 대상입니다.
+
+**예산 검사**는 AI 실행이 무한 반복돼 사용량이 커지는 것을 막는 제한입니다. 이슈별 시도 횟수·누적 토큰 사용량을 공식 loop-context로 확인합니다. 로컬 일일 제한도 별도로 확인합니다. 실제 결제 금액, ChatGPT 구독의 잔여 사용량이나 은행 잔액을 조회하는 기능은 아닙니다. 토큰은 AI가 읽고 생성한 텍스트 사용량이며, 기록된 토큰 수가 곧 원화·달러 비용은 아닙니다.
+
+이슈 #1에 적용된 23,050 토큰은 공식 도구가 패턴으로부터 계산한 한도입니다. 실제 Codex 실행 기록 281,048과 맞지 않아 재시도가 차단됐습니다. 기능 실패가 아니라 초기 검증 단계 오류와 예산 설정의 차이로 보류된 것입니다. 이 변경에서 예산 한도나 실패 이력을 초기화하지 않았습니다.
+
+**원격 CI**는 코드를 GitHub에 push하거나 PR을 만들었을 때 GitHub Actions 서버가 테스트를 실행하는 것입니다. 이 저장소의 `.github/workflows/test.yml`이 npm ci, npm test, npm run lint를 실행합니다. 로컬 checker 검증 후 PR을 생성하고, 해당 커밋 SHA의 원격 CI 성공을 별도로 확인합니다. CI 성공은 PR 머지를 뜻하지 않습니다.

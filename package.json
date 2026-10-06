@@ -13,6 +13,7 @@
     "demo": "node src/demo.mjs",
     "loop:setup": "node scripts/setup-loop.mjs",
     "loop:start": "node scripts/run-issue-loop.mjs",
-    "loop:report": "node scripts/run-issue-loop.mjs --mode report"
+    "loop:report": "node scripts/run-issue-loop.mjs --mode report",
+    "loop": "node scripts/run-loop.mjs"
   }
 }
