@@ -4,7 +4,7 @@
 
 로컬: `/Users/jeonminji/company/loop-engineer-test2`
 
-작은 Node.js 견적 계산기와 개발할 이슈를 준비한 저장소입니다. 초기 PR은 만들지 않습니다. Loop Engineering 설치·AI runner·예약 실행은 사용자가 아래 안내를 따라 직접 연결합니다. 현재 CI는 애플리케이션 테스트만 실행합니다.
+작은 Node.js 견적 계산기와 개발할 이슈를 준비한 저장소입니다. 초기 PR은 만들지 않습니다. Loop Engineering 설정은 아래 한 번 실행 명령으로 생성합니다. AI runner·예약 실행은 별도로 연결합니다. 현재 CI는 애플리케이션 테스트만 실행합니다.
 
 ## 준비된 프로젝트
 
@@ -57,28 +57,30 @@ flowchart TD
 
 **Issue Triage는 분류 담당이고 구현기가 아닙니다.** 구현 작업을 별도 agent에 전달한 뒤 PR Babysitter에 넘기는 coordinator를 연결해야 합니다. `init`만으로 이 전체 흐름이 자동 동작하지 않습니다.
 
+## 실행 프로그램 구현 방법
+
+[이슈 처리 프로그램 구현 설계](docs/runner-implementation.md)에 모듈 구조, 실제 AI 호출 adapter, 구현·검증·PR 생성 순서, 지속 상태와 실패 복구, 구현 완료 테스트를 정리했습니다. 설계 문서이며 프로그램은 아직 구현하지 않았습니다.
+
 ## 사용자가 직접 설정할 Loop Engineering
 
 공식 자료: [저장소](https://github.com/cobusgreyling/loop-engineering), [Issue Triage](https://github.com/cobusgreyling/loop-engineering/blob/main/patterns/issue-triage.md), [작은 작업→PR 가이드](https://github.com/cobusgreyling/loop-engineering/blob/main/docs/refactor.md), [PR Babysitter](https://github.com/cobusgreyling/loop-engineering/blob/main/patterns/pr-babysitter.md).
 
-### 1. 설정 초안 생성
+### 1. 한 번 실행으로 공식 설정 생성
+
+macOS에서는 프로젝트의 **`setup-loop.command`를 더블클릭**해도 아래 설정 명령이 실행됩니다. macOS가 실행을 차단하면 터미널 명령을 사용하세요.
 
 ```sh
 # 프로젝트 폴더로 이동합니다.
 cd /Users/jeonminji/company/loop-engineer-test2
-# 이슈 분류 설정의 생성 계획만 확인합니다. 파일은 변경하지 않습니다.
-npx --yes @cobusgreyling/loop@0.2.0 init . --pattern issue-triage --tool codex --dry-run
-# 확인한 이슈 분류 설정 초안을 실제 생성합니다.
-npx --yes @cobusgreyling/loop@0.2.0 init . --pattern issue-triage --tool codex
-# 생성된 설정의 준비 상태를 진단합니다.
+# 공식 loop-init으로 이슈 분류·PR 관리 설정을 생성합니다. AI 작업은 실행하지 않습니다.
+npm run loop:setup
+# 생성된 설정을 공식 도구로 진단합니다. 진단 자체는 작업을 실행하지 않습니다.
 npx --yes @cobusgreyling/loop@0.2.0 doctor .
-# PR 관리 설정은 먼저 미리 보고 기존 설정과 합치는 방식을 결정합니다.
-npx --yes @cobusgreyling/loop@0.2.0 init . --pattern pr-babysitter --tool codex --dry-run
-# 생성된 skill·상태 파일의 위치를 확인합니다.
-rg --files --hidden -g '!.git/**' -g '!node_modules/**' -g 'SKILL.md' -g '*state*.md' -g 'LOOP.md'
 ```
 
-두 패턴의 init을 무작정 같은 경로에 연속 적용하지 마세요. 생성 계획을 보고 패턴별 state를 분리하고 공통 constraints·budget·coordinator를 구성하세요. 도구 전용 starter가 없으면 공통 starter로 대체될 수 있으므로 실제 출력과 에이전트가 읽는 경로를 확인합니다. 위 npx 명령은 이 저장소 구성 과정에서 실행하지 않았습니다.
+`scripts/setup-loop.mjs`는 공식 `@cobusgreyling/loop-init@1.7.0`을 실제 호출합니다. 최초 실행에는 네트워크와 Node.js 22 이상이 필요합니다. 두 패턴을 임시 폴더에서 생성하고, 원본은 `.loop-engineering/patterns/`에 보존합니다. skills는 `.agents/skills/`로 연결하며 LOOP·constraints·패턴별 state·budget·ledger·run log·AGENTS를 생성합니다. 진단은 위 두 번째 명령으로 별도 실행합니다.
+
+다시 실행하면 생성된 파일의 존재를 확인하고 기존 설정을 유지합니다. 최초 생성 시 기존 파일과 충돌하면 덮어쓰지 않고 종료합니다. 설정 완료는 AI 실행 완료가 아닙니다. 이 명령은 이슈 구현·PR 생성·PR 머지·이슈 종료·예약 등록을 수행하지 않습니다. **PR 머지와 이슈 종료 금지**를 생성 정책에 명시합니다.
 
 ### 2. coordinator의 실행 계약
 
