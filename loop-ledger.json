@@ -1,0 +1,6 @@
+{
+  "goal": "Get the watched PR review-ready and green",
+  "pattern": "pr-babysitter",
+  "level": "L2",
+  "attempts": []
+}
