@@ -37,7 +37,7 @@ async function agent(role, cwd, prompt, runDir) {
     summary: { type: 'string' }, evidence: { type: 'array', items: { type: 'string' } },
   }, required: ['verdict', 'summary', 'evidence'], additionalProperties: false });
   const args = ['exec', '--ignore-user-config', '--ephemeral', '-c', 'approval_policy="never"', '-C', cwd,
-    '--sandbox', role === 'maker' ? 'workspace-write' : 'read-only', '--json', '--output-schema', schema, '-o', output, '-'];
+    '--sandbox', 'workspace-write', '--json', '--output-schema', schema, '-o', output, '-'];
   console.log(`  Codex ${role} 별도 세션 실행 중…`);
   const usage = await runAgentProcess('codex',args,{cwd,prompt,logPath:path.join(runDir,`${role}-events.jsonl`),maxActions:LOOP_LIMITS.maxAgentActions,timeoutMs:LOOP_LIMITS.agentTimeoutMs});
   return { ...JSON.parse(readFileSync(output, 'utf8')), tokensUsed: usage ? (usage.input_tokens ?? 0) + (usage.output_tokens ?? 0) : null,
@@ -153,7 +153,7 @@ async function main() {
         save(stateFile,state); save(ledger,{goal:`Issue #${issue.number}`,pattern:'pr-babysitter',level:'L2',attempts:state.attempts});
         await updateChecklist(pr,state); outcome='verified'; return;
       }
-      git(['add','--',...paths],work); git(['commit','-m',`${pr ? 'fix' : 'feat'}: 이슈 #${issue.number} 요구사항 반영`],work);
+      git(['add','--',...paths],work); git(['commit','-m',`${pr || issue.labels.some(l => l.name === 'bug') ? 'fix' : 'feat'}: 이슈 #${issue.number} 요구사항 반영`],work);
       const sha = git(['rev-parse','HEAD'],work);
       // force push 금지; 원격 변경이 있으면 push가 실패합니다.
       git(['push',`git@github.com:${repo}.git`,`HEAD:refs/heads/${branch}`],work);

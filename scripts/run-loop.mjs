@@ -16,6 +16,7 @@ async function main() {
   const lock = path.join(runtime,'batch-lock');
   try { mkdirSync(lock); } catch { throw new Error('다른 전체 이슈 실행이 진행 중입니다.'); }
   writeFileSync(path.join(lock,'owner.json'),JSON.stringify({pid:process.pid,startedAt:new Date().toISOString()}));
+  const startedAt = new Date().toISOString();
   try {
     // 페이지를 모두 조회합니다. REST issues 응답에 포함되는 PR은 제외합니다.
     const fetched = spawnSync('gh',['api','--paginate','--slurp','repos/charmeee/loop-test2/issues?state=open&labels=loop%3Aready&per_page=100'],{cwd:root,encoding:'utf8',timeout:60000,maxBuffer:20*1024*1024});
@@ -40,7 +41,7 @@ async function main() {
       const after=existsSync(file) ? JSON.parse(readFileSync(file,'utf8')) : null;
       return {status:after?.phase ?? 'no-op',prNumber:after?.prNumber ?? null};
     });
-    const summary={startedAt:new Date().toISOString(),mode:options.mode,results};
+    const summary={startedAt,finishedAt:new Date().toISOString(),mode:options.mode,results};
     writeFileSync(path.join(runtime,'batch-summary.json'),JSON.stringify(summary,null,2)+'\n');
     console.log('\n전체 실행 요약:');
     for(const r of results) console.log(`#${r.number}: ${r.status}${r.prNumber ? ` (PR #${r.prNumber})` : ''}`);

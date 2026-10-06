@@ -61,7 +61,7 @@ npx --yes @cobusgreyling/loop-init@1.7.0 <임시-PR-폴더> --pattern pr-babysit
 5. 최신 main 또는 현재 PR head에서 별도 worktree 생성.
 6. 실제 Codex maker 실행: 요구사항 구현과 테스트 추가. GitHub 작업 금지.
 7. 프로그램이 허용 파일·기존 테스트 보존·npm test/lint 검사.
-8. 새 Codex checker 세션이 독립 검증. read-only sandbox 사용.
+8. 새 Codex checker 세션이 독립 검증. 테스트용 임시 파일 쓰기를 허용하며 후보 코드 변경은 금지합니다.
 9. 로컬 승인 시 coordinator만 commit·push, 연결된 PR이 없다면 생성.
 10. 정확한 SHA의 CI를 최대 약 3분 확인합니다. 이 프로젝트의 애플리케이션 검사인 verify가 존재해야 성공으로 판단합니다. 성공하면 CI 체크리스트 갱신.
 11. PR·SHA·실제 측정 tokens·시도 결과를 저장, worktree와 잠금 정리.
@@ -77,9 +77,9 @@ npx --yes @cobusgreyling/loop-init@1.7.0 <임시-PR-폴더> --pattern pr-babysit
 codex exec --ignore-user-config --ephemeral -c 'approval_policy="never"' \
   -C <worktree> --sandbox workspace-write --json \
   --output-schema <maker-schema.json> -o <maker-answer.json> -
-# checker: 새 세션에서 읽기·테스트 검증만 수행합니다.
+# checker: 새 세션에서 읽기·테스트 검증을 수행하며 코드 변경은 금지합니다.
 codex exec --ignore-user-config --ephemeral -c 'approval_policy="never"' \
-  -C <worktree> --sandbox read-only --json \
+  -C <worktree> --sandbox workspace-write --json \
   --output-schema <checker-schema.json> -o <checker-answer.json> -
 # 매 구현 시도 전에 공식 circuit breaker를 실행합니다.
 npx --yes @cobusgreyling/loop-context@1.5.0 --check \
@@ -109,3 +109,7 @@ PR 본문에 `Closes #N`을 사용하지만 **프로그램에는 PR merge/issue 
 이슈 #1에 적용된 23,050 토큰은 공식 도구가 패턴으로부터 계산한 한도입니다. 실제 Codex 실행 기록 281,048과 맞지 않아 재시도가 차단됐습니다. 기능 실패가 아니라 초기 검증 단계 오류와 예산 설정의 차이로 보류된 것입니다. 이것은 이전 정책의 결과입니다. 현재 토큰 cap은 해제했고, 실패 횟수와 기록은 그대로 유지했습니다. 자세한 내용은 [토큰 분석](token-analysis.md)을 확인하세요.
 
 **원격 CI**는 코드를 GitHub에 push하거나 PR을 만들었을 때 GitHub Actions 서버가 테스트를 실행하는 것입니다. 이 저장소의 `.github/workflows/test.yml`이 npm ci, npm test, npm run lint를 실행합니다. 로컬 checker 검증 후 PR을 생성하고, 해당 커밋 SHA의 원격 CI 성공을 별도로 확인합니다. CI 성공은 PR 머지를 뜻하지 않습니다.
+
+## 테스트 실행 환경 보정
+
+checker는 별도 검증 세션이며 코드 수정 역할이 아닙니다. 다만 전체 테스트에 mkdtemp를 사용하는 자동화 테스트가 포함되어 있어 read-only sandbox에서는 EPERM으로 실패했습니다. workspace-write sandbox로 테스트 임시 파일 쓰기를 허용하고, 검증 전후 후보 파일의 상태·diff·내용 snapshot을 비교해 코드 변경이 남아 있으면 거절합니다. sandbox 해제나 머지 권한 추가는 하지 않았습니다.

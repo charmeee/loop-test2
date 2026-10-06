@@ -24,7 +24,7 @@
 
 ## 역할 분리
 
-maker와 checker는 서로 다른 `codex exec` 프로세스·세션입니다. maker는 workspace-write, checker는 read-only입니다. AI가 스스로 commit/push/PR 생성/머지하지 않습니다. 프로그램이 허용 diff·테스트 결과·checker 판정·후보 SHA를 확인한 뒤 GitHub 쓰기를 수행합니다.
+maker와 checker는 서로 다른 `codex exec` 프로세스·세션입니다. maker는 workspace-write, checker는 workspace-write입니다. 테스트용 임시 파일 쓰기를 허용하되 후보 코드 변경은 전후 snapshot 검사로 거절합니다. AI가 스스로 commit/push/PR 생성/머지하지 않습니다. 프로그램이 허용 diff·테스트 결과·checker 판정·후보 SHA를 확인한 뒤 GitHub 쓰기를 수행합니다.
 
 기존 PR에서는 정확한 SHA의 CI와 리뷰·인라인 댓글·일반 댓글을 확인합니다. 이전 검증 SHA와 피드백이 같고 CI가 성공이면 중복 구현을 생략합니다. CI pending/없음이면 대기 상태로 종료합니다. 실패·변경된 피드백·새 SHA는 다시 수정·검증 대상입니다.
 
