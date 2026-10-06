@@ -3,6 +3,10 @@ name: loop-budget
 description: Check token budget and run-log spend before and after a loop run. Enforces early exit when over budget or when there is no actionable work.
 ---
 
+## Project override (user-authorized)
+Read loop-budget.md. Tokens are telemetry only. Do not use token caps or --budget-from-pattern; run loop-context --check --max-iterations 3 and enforce action/time caps in the runner. Preserve prior failures.
+
+
 # Loop Budget Guard
 
 Run at the **start** and **end** of every loop iteration.

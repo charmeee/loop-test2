@@ -1,26 +1,17 @@
-# Loop Budget — charmeee/loop-test2
+# 실행 한도 — charmeee/loop-test2
 
-> Primary loop: **PR Babysitter** (scaffolded by loop-init)
+사용자 요청에 따라 토큰 차단 대신 횟수·시간 기반 제한을 적용합니다.
+공식 원본은 .loop-engineering/patterns에 보존합니다. 이 프로젝트 정책이 활성 skills의 토큰 예산 기본값보다 우선합니다.
 
-## Daily limits
+| 제한 | 값 |
+|---|---|
+| 이슈별 누적 구현·독립 검증 시도 | 최대 3회 |
+| 한 시도의 AI 세션 | maker 1회 + checker 1회 |
+| 에이전트별 도구 작업 | 최대 20회; 다음 작업 시작 감지 시 프로세스 종료 |
+| 에이전트별 실행 시간 | 최대 10분 |
+| 일일 단일 이슈 사이클 | 최대 288회 |
+| 토큰 수 | 관측·기록만, 중단 기준 아님 |
 
-| Loop | Max runs/day | Max tokens/day | Max sub-agent spawns/run |
-|------|--------------|----------------|--------------------------|
-| PR Babysitter | 288 | 2M | 0 (L1) / 3 (L2) |
+턴이라는 말은 여기서 구현→독립 검증 사이클을 뜻합니다. Codex의 turn.started는 긴 도구 작업 세션 전체에 한 번만 발생하므로 내부 반복을 제한하는 데 충분하지 않습니다. 그래서 도구 작업·시간 제한도 함께 적용합니다.
 
-## On budget exceed
-
-1. Pause schedulers (`scheduler_delete` or disable automations)
-2. Append event to `loop-run-log.md`
-3. Notify human (Slack / issue / STATE.md High Priority)
-
-## Kill switch
-
-- Command or issue label: `loop-pause-all`
-- Resume only after human clears the flag in STATE.md
-
-## Estimate spend
-
-```bash
-npx @cobusgreyling/loop-cost --pattern pr-babysitter
-```
+중지는 LOOP_PAUSED 또는 loop-pause-all 파일로 제어합니다. PR 머지와 이슈 종료는 금지합니다.

@@ -1,3 +1,4 @@
+export const LOOP_LIMITS = Object.freeze({ maxAttempts: 3, maxAgentActions: 20, agentTimeoutMs: 600000, maxDailyCycles: 288 });
 export function parseArgs(args) {
   const result = { mode: 'repair', issue: null };
   for (let i = 0; i < args.length; i++) {

@@ -21,3 +21,13 @@ test('unknown mode and malformed selectors are rejected',()=>{
   assert.throws(()=>parseArgs(['--issue','1;rm']));
   assert.deepEqual(parseArgs(['--mode','report','--issue','2']),{mode:'report',issue:2});
 });
+
+test('agent work counting deduplicates start/complete and enforces the action cap',async()=>{
+  const {actionCounter}=await import('../scripts/loop/agent-process.mjs');
+  const over=actionCounter(2);
+  assert.equal(over({type:'turn.started'}),false);
+  assert.equal(over({type:'item.started',item:{id:'a',type:'command_execution'}}),false);
+  assert.equal(over({type:'item.completed',item:{id:'a',type:'command_execution'}}),false);
+  assert.equal(over({type:'item.completed',item:{id:'b',type:'file_change'}}),false);
+  assert.equal(over({type:'item.started',item:{id:'c',type:'command_execution'}}),true);
+});

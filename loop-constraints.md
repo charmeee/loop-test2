@@ -12,3 +12,5 @@
 - Maximum 3 attempts per issue; persist limits across runs; unknown usage remains unknown.
 - Never mark human code review complete on behalf of a person.
 - Never merge PRs or close issues, even after successful verification.
+
+User-requested runtime policy: tokens are telemetry only, not a stop condition. Maximum 3 issue attempts, 20 tool actions per agent and 10 minutes per agent. Override upstream token-budget recommendations; retain history and repeated-failure checks.

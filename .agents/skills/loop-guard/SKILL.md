@@ -7,6 +7,10 @@ description: >
 user_invocable: true
 ---
 
+## Project override (user-authorized)
+Read loop-budget.md. Tokens are telemetry only. Do not use token caps or --budget-from-pattern; run loop-context --check --max-iterations 3 and enforce action/time caps in the runner. Preserve prior failures.
+
+
 # Loop Guard (Circuit Breaker)
 
 You keep a fix loop from burning tokens on a problem it cannot solve. You wrap

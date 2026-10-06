@@ -18,3 +18,5 @@ Official pattern originals:
 - .loop-engineering/patterns/pr-babysitter/LOOP.md
 
 Implementation contract: docs/runner-implementation.md
+
+User-requested runtime policy: tokens are telemetry only, not a stop condition. Maximum 3 issue attempts, 20 tool actions per agent and 10 minutes per agent. Override upstream token-budget recommendations; retain history and repeated-failure checks.

@@ -43,7 +43,7 @@ npx --yes @cobusgreyling/loop-init@1.7.0 <임시-PR-폴더> --pattern pr-babysit
 | `.agents/skills/` | 실제 에이전트 지시로 읽는 공식 skills |
 | `AGENTS.md`, `LOOP.md` | 프로젝트 실행 순서와 운영 계약 |
 | `loop-constraints.md` | 변경 경로·머지 금지·이슈 종료 금지 |
-| `loop-budget.md` | 공식 예산; 로컬 runner는 일일 288회·측정 토큰 80%에서 중단 |
+| `loop-budget.md` | 로컬 정책: 시도 3회·도구 작업 20회·10분·일일 288회; 토큰은 관측만 |
 | `issue-triage-state.md` | 최근 이슈 큐 조회 결과 |
 | `pr-babysitter-state.md` | 최근 처리한 PR 상태 |
 | `loop-ledger.json` | 공식 초기 ledger; 작업별 실행 ledger는 아래에 저장 |
@@ -57,7 +57,7 @@ npx --yes @cobusgreyling/loop-init@1.7.0 <임시-PR-폴더> --pattern pr-babysit
 1. 설정·pause·constraints·budget 확인, 로컬 동시 실행 잠금 획득.
 2. GitHub에서 ready/in-progress 이슈와 PR 조회, 연결된 PR·리뷰·댓글 확인.
 3. report라면 목록 기록 후 종료. repair라면 최대 이슈 하나 선택.
-4. 이슈별 누적 시도 3회 및 공식 `loop-context`로 제한 검사.
+4. 이슈별 누적 시도 3회 및 공식 `loop-context`로 제한 검사. 토큰 cap은 적용하지 않습니다.
 5. 최신 main 또는 현재 PR head에서 별도 worktree 생성.
 6. 실제 Codex maker 실행: 요구사항 구현과 테스트 추가. GitHub 작업 금지.
 7. 프로그램이 허용 파일·기존 테스트 보존·npm test/lint 검사.
@@ -66,7 +66,7 @@ npx --yes @cobusgreyling/loop-init@1.7.0 <임시-PR-폴더> --pattern pr-babysit
 10. 정확한 SHA의 CI를 최대 약 3분 확인합니다. 이 프로젝트의 애플리케이션 검사인 verify가 존재해야 성공으로 판단합니다. 성공하면 CI 체크리스트 갱신.
 11. PR·SHA·실제 측정 tokens·시도 결과를 저장, worktree와 잠금 정리.
 
-실패하면 한 사이클 안에서 무한 재시도하지 않습니다. 실패를 needs-human으로 저장하고 종료합니다. 기본 실행은 그 항목을 건너뛰고, 사람이 원인을 확인한 뒤 --issue 번호로 지정하면 남은 시도 안에서 다시 처리합니다. 누적 3회 이후에는 사람의 확인이 필요합니다. 프로세스가 강제로 종료돼 lock이 남으면 `.loop-runtime/lock/owner.json`의 PID가 아직 실행 중인지 확인한 뒤 수동 복구하세요. 비용을 측정할 수 없는 실행은 null이며 0으로 취급하지 않습니다. 그런 실행에도 횟수·시간 제한은 적용합니다. 공식 토큰 제한은 누적 ledger를 기준으로 다음 시도 전에 검사하며, 진행 중인 단일 모델 응답에 대한 하드 토큰 제한은 아닙니다.
+실패하면 한 사이클 안에서 무한 재시도하지 않습니다. 실패를 needs-human으로 저장하고 종료합니다. 기본 실행은 그 항목을 건너뛰고, 사람이 원인을 확인한 뒤 --issue 번호로 지정하면 남은 시도 안에서 다시 처리합니다. 누적 3회 이후에는 사람의 확인이 필요합니다. 에이전트는 도구 작업 20회 또는 10분 제한을 초과하면 종료됩니다. 프로세스가 강제로 종료돼 lock이 남으면 `.loop-runtime/lock/owner.json`의 PID가 아직 실행 중인지 확인한 뒤 수동 복구하세요. 비용을 측정할 수 없는 실행은 null이며 0으로 취급하지 않습니다. 그런 실행에도 횟수·시간 제한은 적용합니다. 현재는 토큰을 중단 기준으로 사용하지 않습니다.
 
 ## Codex 실행 명령
 
@@ -83,8 +83,7 @@ codex exec --ignore-user-config --ephemeral -c 'approval_policy="never"' \
   --output-schema <checker-schema.json> -o <checker-answer.json> -
 # 매 구현 시도 전에 공식 circuit breaker를 실행합니다.
 npx --yes @cobusgreyling/loop-context@1.5.0 --check \
-  --ledger <이슈별-ledger.json> --max-iterations 3 \
-  --budget-from-pattern pr-babysitter --budget-level L2
+  --ledger <이슈별-ledger.json> --max-iterations 3
 ```
 
 checker가 APPROVE를 반환해도 프로그램의 diff·테스트·SHA 검사가 실패하면 PR을 생성하지 않습니다. 기존 테스트 파일은 그대로 유지하고 새 테스트 파일을 추가합니다. 사람의 리뷰 완료는 체크하지 않습니다.
@@ -105,8 +104,8 @@ PR 본문에 `Closes #N`을 사용하지만 **프로그램에는 PR merge/issue 
 
 결과는 `.loop-runtime/batch-summary.json`에 저장합니다. 보류·실패·pause가 있으면 전체 명령의 종료 코드는 1입니다. CI가 아직 대기라면 성공으로 표시하지 않고 waiting_ci로 남겨 다음 실행에서 확인합니다. 실행 중 추가된 새 이슈는 다음 실행 대상입니다.
 
-**예산 검사**는 AI 실행이 무한 반복돼 사용량이 커지는 것을 막는 제한입니다. 이슈별 시도 횟수·누적 토큰 사용량을 공식 loop-context로 확인합니다. 로컬 일일 제한도 별도로 확인합니다. 실제 결제 금액, ChatGPT 구독의 잔여 사용량이나 은행 잔액을 조회하는 기능은 아닙니다. 토큰은 AI가 읽고 생성한 텍스트 사용량이며, 기록된 토큰 수가 곧 원화·달러 비용은 아닙니다.
+**실행 한도 검사**는 AI의 무한 반복을 막는 제한입니다. 사용자 요청에 따라 토큰 cap은 제거하고 이슈별 시도 횟수를 공식 loop-context로 확인합니다. 에이전트별 도구 작업·시간과 로컬 일일 실행 횟수도 제한합니다. 실제 결제 금액, ChatGPT 구독의 잔여 사용량이나 은행 잔액을 조회하는 기능은 아닙니다. 토큰은 AI가 읽고 생성한 텍스트 사용량이며, 기록된 토큰 수가 곧 원화·달러 비용은 아닙니다.
 
-이슈 #1에 적용된 23,050 토큰은 공식 도구가 패턴으로부터 계산한 한도입니다. 실제 Codex 실행 기록 281,048과 맞지 않아 재시도가 차단됐습니다. 기능 실패가 아니라 초기 검증 단계 오류와 예산 설정의 차이로 보류된 것입니다. 이 변경에서 예산 한도나 실패 이력을 초기화하지 않았습니다.
+이슈 #1에 적용된 23,050 토큰은 공식 도구가 패턴으로부터 계산한 한도입니다. 실제 Codex 실행 기록 281,048과 맞지 않아 재시도가 차단됐습니다. 기능 실패가 아니라 초기 검증 단계 오류와 예산 설정의 차이로 보류된 것입니다. 이것은 이전 정책의 결과입니다. 현재 토큰 cap은 해제했고, 실패 횟수와 기록은 그대로 유지했습니다. 자세한 내용은 [토큰 분석](token-analysis.md)을 확인하세요.
 
 **원격 CI**는 코드를 GitHub에 push하거나 PR을 만들었을 때 GitHub Actions 서버가 테스트를 실행하는 것입니다. 이 저장소의 `.github/workflows/test.yml`이 npm ci, npm test, npm run lint를 실행합니다. 로컬 checker 검증 후 PR을 생성하고, 해당 커밋 SHA의 원격 CI 성공을 별도로 확인합니다. CI 성공은 PR 머지를 뜻하지 않습니다.
