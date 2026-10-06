@@ -1,0 +1,14 @@
+{
+  "goal": "Issue #1",
+  "pattern": "pr-babysitter",
+  "level": "L2",
+  "attempts": [
+    {
+      "iteration": 1,
+      "action": "implement-and-verify",
+      "outcome": "failure",
+      "error": "Checker ESCALATE_HUMAN: 기능 요구사항은 모두 통과했습니다. 다만 변경이 미커밋 상태여서 후보 SHA의 CI와 연결 PR의 검증 기록·체크리스트를 확인하지 못했습니다. 최종 승인과 사람의 코드 리뷰는 남아 있습니다.",
+      "tokensUsed": 281048
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+verify	Set up job	﻿2026-10-06T03:11:28.2890585Z Current runner version: '2.337.0'
+verify	Set up job	2026-10-06T03:11:28.2917725Z ##[group]Runner Image Provisioner
+verify	Set up job	2026-10-06T03:11:28.2918639Z Hosted Compute Agent
+verify	Set up job	2026-10-06T03:11:28.2919400Z Version: 20260901.588
+verify	Set up job	2026-10-06T03:11:28.2920104Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+verify	Set up job	2026-10-06T03:11:28.2920941Z Build Date: 2026-09-01T19:56:44Z
+verify	Set up job	2026-10-06T03:11:28.2921937Z Worker ID: {f9f72e02-1efa-4894-a982-46ca22146b02}
+verify	Set up job	2026-10-06T03:11:28.2922755Z Azure Region: westus
+verify	Set up job	2026-10-06T03:11:28.2923491Z ##[endgroup]
+verify	Set up job	2026-10-06T03:11:28.2925058Z ##[group]Operating System
+verify	Set up job	2026-10-06T03:11:28.2925712Z Ubuntu
+verify	Set up job	2026-10-06T03:11:28.2926372Z 24.04.5
+verify	Set up job	2026-10-06T03:11:28.2926884Z LTS
+verify	Set up job	2026-10-06T03:11:28.2927473Z ##[endgroup]
+verify	Set up job	2026-10-06T03:11:28.2928021Z ##[group]Runner Image
+verify	Set up job	2026-10-06T03:11:28.2928619Z Image: ubuntu-24.04
+verify	Set up job	2026-10-06T03:11:28.2929253Z Version: 20260927.320.1
+verify	Set up job	2026-10-06T03:11:28.2930341Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+verify	Set up job	2026-10-06T03:11:28.2932508Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+verify	Set up job	2026-10-06T03:11:28.2933511Z ##[endgroup]
+verify	Set up job	2026-10-06T03:11:28.2934719Z ##[group]GITHUB_TOKEN Permissions
+verify	Set up job	2026-10-06T03:11:28.2936969Z Contents: read
+verify	Set up job	2026-10-06T03:11:28.2937705Z Metadata: read
+verify	Set up job	2026-10-06T03:11:28.2938263Z ##[endgroup]
+verify	Set up job	2026-10-06T03:11:28.2940498Z Secret source: Actions
+verify	Set up job	2026-10-06T03:11:28.2941497Z Cache mode: write
+verify	Set up job	2026-10-06T03:11:28.2942678Z Prepare workflow directory
+verify	Set up job	2026-10-06T03:11:28.3343528Z Prepare all required actions
+verify	Set up job	2026-10-06T03:11:28.3400694Z Getting action download info
+verify	Set up job	2026-10-06T03:11:28.7171305Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+verify	Set up job	2026-10-06T03:11:29.1178839Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+verify	Set up job	2026-10-06T03:11:29.3772550Z Complete job name: verify
+verify	Run actions/checkout@v4	﻿2026-10-06T03:11:29.4620110Z ##[group]Run actions/checkout@v4
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4621104Z with:
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4621845Z   repository: charmeee/loop-test2
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4625727Z   token: ***
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4626171Z   ssh-strict: true
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4626611Z   ssh-user: git
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4627065Z   persist-credentials: true
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4627556Z   clean: true
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4627990Z   sparse-checkout-cone-mode: true
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4628513Z   fetch-depth: 1
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4628944Z   fetch-tags: false
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4629386Z   show-progress: true
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4629820Z   lfs: false
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4630223Z   submodules: false
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4630674Z   set-safe-directory: true
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4631176Z   allow-unsafe-pr-checkout: false
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.4632205Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.5748203Z Syncing repository: charmeee/loop-test2
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.5750244Z ##[group]Getting Git version info
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.5751016Z Working directory is '/home/runner/work/loop-test2/loop-test2'
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.5752463Z [command]/usr/bin/git version
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7023445Z git version 2.55.0
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7047395Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7065833Z Temporarily overriding HOME='/home/runner/work/_temp/a1f9515c-49a3-42d3-9dcd-a5354a477e3b' before making global git config changes
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7068390Z Adding repository directory to the temporary git global config as a safe directory
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7073239Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/loop-test2/loop-test2
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7353334Z Deleting the contents of '/home/runner/work/loop-test2/loop-test2'
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7359223Z ##[group]Initializing the repository
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7364856Z [command]/usr/bin/git init /home/runner/work/loop-test2/loop-test2
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7895705Z hint: Using 'master' as the name for the initial branch. This default branch name
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7898365Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7900833Z hint: to use in all of your new repositories, which will suppress this warning,
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7902861Z hint: call:
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7903511Z hint:
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7904284Z hint: 	git config --global init.defaultBranch <name>
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7905063Z hint:
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7905811Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7907015Z hint: 'development'. The just-created branch can be renamed via this command:
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7907960Z hint:
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7908470Z hint: 	git branch -m <name>
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7909061Z hint:
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7909842Z hint: Disable this message with "git config set advice.defaultBranchName false"
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7911215Z Initialized empty Git repository in /home/runner/work/loop-test2/loop-test2/.git/
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.7914828Z [command]/usr/bin/git remote add origin https://github.com/charmeee/loop-test2
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.8242445Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.8244825Z ##[group]Disabling automatic garbage collection
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.8246586Z [command]/usr/bin/git config --local gc.auto 0
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.8294823Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.8296347Z ##[group]Setting up auth
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.8305132Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+verify	Run actions/checkout@v4	2026-10-06T03:11:29.8354729Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.0448363Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.0497050Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.0749212Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.0798969Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.1060234Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.1112329Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.1115182Z ##[group]Fetching the repository
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.1127212Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +b988433d1c1fcbe1f4f60ea9d0dd17e274e003f6:refs/remotes/pull/4/merge
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7033665Z From https://github.com/charmeee/loop-test2
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7034581Z  * [new ref]         b988433d1c1fcbe1f4f60ea9d0dd17e274e003f6 -> pull/4/merge
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7039656Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7040292Z ##[group]Determining the checkout info
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7043353Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7049993Z [command]/usr/bin/git sparse-checkout disable
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7255391Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7300717Z ##[group]Checking out the ref
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7305602Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/4/merge
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7425211Z Note: switching to 'refs/remotes/pull/4/merge'.
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7425821Z 
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7426215Z You are in 'detached HEAD' state. You can look around, make experimental
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7427095Z changes and commit them, and you can discard any commits you make in this
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7427944Z state without impacting any branches by switching back to a branch.
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7428477Z 
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7428829Z If you want to create a new branch to retain commits you create, you may
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7429619Z do so (now or later) by using -c with the switch command. Example:
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7430114Z 
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7430308Z   git switch -c <new-branch-name>
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7430681Z 
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7430868Z Or undo this operation with:
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7431435Z 
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7432201Z   git switch -
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7432491Z 
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7432965Z Turn off this advice by setting config variable advice.detachedHead to false
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7433550Z 
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7434158Z HEAD is now at b988433 Merge 9e8fc00d12a3f58f5548471759893ef7d4c75b90 into 37f192cb22d087abc29be27d141d85b326c3b4c0
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7436495Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7486813Z [command]/usr/bin/git log -1 --format=%H
+verify	Run actions/checkout@v4	2026-10-06T03:11:30.7516975Z b988433d1c1fcbe1f4f60ea9d0dd17e274e003f6
+verify	Run actions/setup-node@v4	﻿2026-10-06T03:11:30.7809656Z ##[group]Run actions/setup-node@v4
+verify	Run actions/setup-node@v4	2026-10-06T03:11:30.7810074Z with:
+verify	Run actions/setup-node@v4	2026-10-06T03:11:30.7810328Z   node-version: 22
+verify	Run actions/setup-node@v4	2026-10-06T03:11:30.7810630Z   cache: npm
+verify	Run actions/setup-node@v4	2026-10-06T03:11:30.7810874Z   always-auth: false
+verify	Run actions/setup-node@v4	2026-10-06T03:11:30.7811148Z   check-latest: false
+verify	Run actions/setup-node@v4	2026-10-06T03:11:30.7813855Z   token: ***
+verify	Run actions/setup-node@v4	2026-10-06T03:11:30.7814127Z ##[endgroup]
+verify	Run actions/setup-node@v4	2026-10-06T03:11:30.9810825Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+verify	Run actions/setup-node@v4	2026-10-06T03:11:30.9815584Z (node:2378) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+verify	Run actions/setup-node@v4	2026-10-06T03:11:30.9816859Z (Use `node --trace-deprecation ...` to show where the warning was created)
+verify	Run actions/setup-node@v4	2026-10-06T03:11:30.9819364Z ##[group]Environment details
+verify	Run actions/setup-node@v4	2026-10-06T03:11:33.9197390Z node: v22.23.3
+verify	Run actions/setup-node@v4	2026-10-06T03:11:33.9198008Z npm: 10.9.9
+verify	Run actions/setup-node@v4	2026-10-06T03:11:33.9198415Z yarn: 1.22.22
+verify	Run actions/setup-node@v4	2026-10-06T03:11:33.9199709Z ##[endgroup]
+verify	Run actions/setup-node@v4	2026-10-06T03:11:33.9225802Z [command]/opt/hostedtoolcache/node/22.23.3/x64/bin/npm config get cache
+verify	Run actions/setup-node@v4	2026-10-06T03:11:34.2555129Z /home/runner/.npm
+verify	Run actions/setup-node@v4	2026-10-06T03:11:34.5523769Z Cache hit for: node-cache-Linux-x64-npm-52d34251daa5f65daf74fe9b36ae44200d9ed8a9f1413d93493a3c74fdbe2e8b
+verify	Run actions/setup-node@v4	2026-10-06T03:11:34.5645127Z (node:2378) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+verify	Run actions/setup-node@v4	2026-10-06T03:11:34.9163225Z Received 1022 of 1022 (100.0%), 0.0 MBs/sec
+verify	Run actions/setup-node@v4	2026-10-06T03:11:34.9163988Z Cache Size: ~0 MB (1022 B)
+verify	Run actions/setup-node@v4	2026-10-06T03:11:34.9196607Z [command]/usr/bin/tar -xf /home/runner/work/_temp/04646968-c6bc-4f2a-929f-91cd63bb69a5/cache.tzst -P -C /home/runner/work/loop-test2/loop-test2 --use-compress-program unzstd
+verify	Run actions/setup-node@v4	2026-10-06T03:11:34.9452668Z Cache restored successfully
+verify	Run actions/setup-node@v4	2026-10-06T03:11:34.9457765Z Cache restored from key: node-cache-Linux-x64-npm-52d34251daa5f65daf74fe9b36ae44200d9ed8a9f1413d93493a3c74fdbe2e8b
+verify	Run npm ci	﻿2026-10-06T03:11:34.9658345Z ##[group]Run npm ci
+verify	Run npm ci	2026-10-06T03:11:34.9658783Z [36;1mnpm ci[0m
+verify	Run npm ci	2026-10-06T03:11:35.1220957Z shell: /usr/bin/bash -e {0}
+verify	Run npm ci	2026-10-06T03:11:35.1221504Z ##[endgroup]
+verify	Run npm ci	2026-10-06T03:11:36.8870140Z 
+verify	Run npm ci	2026-10-06T03:11:36.8881947Z up to date, audited 1 package in 2s
+verify	Run npm ci	2026-10-06T03:11:36.8884098Z 
+verify	Run npm ci	2026-10-06T03:11:36.8884604Z found 0 vulnerabilities
+verify	Run npm test	﻿2026-10-06T03:11:36.9322250Z ##[group]Run npm test
+verify	Run npm test	2026-10-06T03:11:36.9322634Z [36;1mnpm test[0m
+verify	Run npm test	2026-10-06T03:11:36.9391097Z shell: /usr/bin/bash -e {0}
+verify	Run npm test	2026-10-06T03:11:36.9391809Z ##[endgroup]
+verify	Run npm test	2026-10-06T03:11:37.0693030Z 
+verify	Run npm test	2026-10-06T03:11:37.0693955Z > loop-test2@1.0.0 test
+verify	Run npm test	2026-10-06T03:11:37.0694810Z > node --test tests/*.test.mjs
+verify	Run npm test	2026-10-06T03:11:37.0695134Z 
+verify	Run npm test	2026-10-06T03:11:37.1772189Z TAP version 13
+verify	Run npm test	2026-10-06T03:11:37.2177066Z # Subtest: ordinary money values round to cents
+verify	Run npm test	2026-10-06T03:11:37.2203821Z ok 1 - ordinary money values round to cents
+verify	Run npm test	2026-10-06T03:11:37.2245570Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2246656Z   duration_ms: 0.946191
+verify	Run npm test	2026-10-06T03:11:37.2247351Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2247905Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2248744Z # Subtest: money rejects non-finite inputs
+verify	Run npm test	2026-10-06T03:11:37.2249775Z ok 2 - money rejects non-finite inputs
+verify	Run npm test	2026-10-06T03:11:37.2250622Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2251249Z   duration_ms: 0.464935
+verify	Run npm test	2026-10-06T03:11:37.2252240Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2252678Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2253379Z # Subtest: quote totals valid amounts and empty lists
+verify	Run npm test	2026-10-06T03:11:37.2254939Z ok 3 - quote totals valid amounts and empty lists
+verify	Run npm test	2026-10-06T03:11:37.2255670Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2256056Z   duration_ms: 0.256062
+verify	Run npm test	2026-10-06T03:11:37.2256478Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2256850Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2257344Z # Subtest: quote rejects invalid amounts
+verify	Run npm test	2026-10-06T03:11:37.2257938Z ok 4 - quote rejects invalid amounts
+verify	Run npm test	2026-10-06T03:11:37.2258418Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2258853Z   duration_ms: 0.216889
+verify	Run npm test	2026-10-06T03:11:37.2259284Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2259654Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2376370Z # Subtest: no CI and unfinished checks cannot approve
+verify	Run npm test	2026-10-06T03:11:37.2387309Z ok 5 - no CI and unfinished checks cannot approve
+verify	Run npm test	2026-10-06T03:11:37.2388829Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2389923Z   duration_ms: 1.712102
+verify	Run npm test	2026-10-06T03:11:37.2391241Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2392508Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2393970Z # Subtest: policy rejects CI/package modifications and large diffs
+verify	Run npm test	2026-10-06T03:11:37.2395769Z ok 6 - policy rejects CI/package modifications and large diffs
+verify	Run npm test	2026-10-06T03:11:37.2397128Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2397998Z   duration_ms: 0.853988
+verify	Run npm test	2026-10-06T03:11:37.2398772Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2399483Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2400504Z # Subtest: issue matching never treats issue 10 as issue 1
+verify	Run npm test	2026-10-06T03:11:37.2402155Z ok 7 - issue matching never treats issue 10 as issue 1
+verify	Run npm test	2026-10-06T03:11:37.2403207Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2403920Z   duration_ms: 0.544404
+verify	Run npm test	2026-10-06T03:11:37.2404726Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2405393Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2406374Z # Subtest: unknown mode and malformed selectors are rejected
+verify	Run npm test	2026-10-06T03:11:37.2407489Z ok 8 - unknown mode and malformed selectors are rejected
+verify	Run npm test	2026-10-06T03:11:37.2408044Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2408429Z   duration_ms: 1.51942
+verify	Run npm test	2026-10-06T03:11:37.2409169Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2409685Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2535619Z # Subtest: summarizes amount count, total, and average
+verify	Run npm test	2026-10-06T03:11:37.2536729Z ok 9 - summarizes amount count, total, and average
+verify	Run npm test	2026-10-06T03:11:37.2537380Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2537746Z   duration_ms: 2.711274
+verify	Run npm test	2026-10-06T03:11:37.2538238Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2538589Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2539160Z # Subtest: empty amounts return zero statistics
+verify	Run npm test	2026-10-06T03:11:37.2540124Z ok 10 - empty amounts return zero statistics
+verify	Run npm test	2026-10-06T03:11:37.2541231Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2552722Z   duration_ms: 0.380606
+verify	Run npm test	2026-10-06T03:11:37.2553257Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2553718Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2554340Z # Subtest: negative amounts are valid statistics inputs
+verify	Run npm test	2026-10-06T03:11:37.2555101Z ok 11 - negative amounts are valid statistics inputs
+verify	Run npm test	2026-10-06T03:11:37.2555619Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2556088Z   duration_ms: 0.257074
+verify	Run npm test	2026-10-06T03:11:37.2556668Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2557139Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2557695Z # Subtest: statistics do not round fractional amounts
+verify	Run npm test	2026-10-06T03:11:37.2559122Z ok 12 - statistics do not round fractional amounts
+verify	Run npm test	2026-10-06T03:11:37.2559667Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2560021Z   duration_ms: 0.301177
+verify	Run npm test	2026-10-06T03:11:37.2560364Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2560573Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2560950Z # Subtest: rejects non-array inputs
+verify	Run npm test	2026-10-06T03:11:37.2562953Z ok 13 - rejects non-array inputs
+verify	Run npm test	2026-10-06T03:11:37.2563540Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2563943Z   duration_ms: 0.787853
+verify	Run npm test	2026-10-06T03:11:37.2564322Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2564613Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2565096Z # Subtest: rejects non-finite and non-number array entries
+verify	Run npm test	2026-10-06T03:11:37.2565813Z ok 14 - rejects non-finite and non-number array entries
+verify	Run npm test	2026-10-06T03:11:37.2566299Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2566602Z   duration_ms: 0.62652
+verify	Run npm test	2026-10-06T03:11:37.2566983Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2567299Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2567770Z # Subtest: rejects sparse arrays including inherited entries
+verify	Run npm test	2026-10-06T03:11:37.2568517Z ok 15 - rejects sparse arrays including inherited entries
+verify	Run npm test	2026-10-06T03:11:37.2569051Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2569622Z   duration_ms: 0.365919
+verify	Run npm test	2026-10-06T03:11:37.2569954Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2570237Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2570738Z # Subtest: handles frozen arrays without mutating inputs
+verify	Run npm test	2026-10-06T03:11:37.2571472Z ok 16 - handles frozen arrays without mutating inputs
+verify	Run npm test	2026-10-06T03:11:37.2572108Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2572333Z   duration_ms: 0.423797
+verify	Run npm test	2026-10-06T03:11:37.2572566Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2572765Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2573191Z # Subtest: preserves mutable arrays on successful and rejected input
+verify	Run npm test	2026-10-06T03:11:37.2573758Z ok 17 - preserves mutable arrays on successful and rejected input
+verify	Run npm test	2026-10-06T03:11:37.2574121Z   ---
+verify	Run npm test	2026-10-06T03:11:37.2574327Z   duration_ms: 0.690039
+verify	Run npm test	2026-10-06T03:11:37.2574563Z   type: 'test'
+verify	Run npm test	2026-10-06T03:11:37.2574760Z   ...
+verify	Run npm test	2026-10-06T03:11:37.2606430Z 1..17
+verify	Run npm test	2026-10-06T03:11:37.2606970Z # tests 17
+verify	Run npm test	2026-10-06T03:11:37.2607367Z # suites 0
+verify	Run npm test	2026-10-06T03:11:37.2607744Z # pass 17
+verify	Run npm test	2026-10-06T03:11:37.2608166Z # fail 0
+verify	Run npm test	2026-10-06T03:11:37.2608556Z # cancelled 0
+verify	Run npm test	2026-10-06T03:11:37.2608971Z # skipped 0
+verify	Run npm test	2026-10-06T03:11:37.2609345Z # todo 0
+verify	Run npm test	2026-10-06T03:11:37.2609845Z # duration_ms 121.567867
+verify	Run npm run lint	﻿2026-10-06T03:11:37.2781453Z ##[group]Run npm run lint
+verify	Run npm run lint	2026-10-06T03:11:37.2782944Z [36;1mnpm run lint[0m
+verify	Run npm run lint	2026-10-06T03:11:37.2850522Z shell: /usr/bin/bash -e {0}
+verify	Run npm run lint	2026-10-06T03:11:37.2850940Z ##[endgroup]
+verify	Run npm run lint	2026-10-06T03:11:37.4010751Z 
+verify	Run npm run lint	2026-10-06T03:11:37.4011850Z > loop-test2@1.0.0 lint
+verify	Run npm run lint	2026-10-06T03:11:37.4012475Z > node scripts/lint.mjs
+verify	Run npm run lint	2026-10-06T03:11:37.4012743Z 
+verify	Post Run actions/setup-node@v4	﻿2026-10-06T03:11:37.7662098Z Post job cleanup.
+verify	Post Run actions/setup-node@v4	2026-10-06T03:11:37.9067510Z (node:2577) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+verify	Post Run actions/setup-node@v4	2026-10-06T03:11:37.9069249Z (Use `node --trace-deprecation ...` to show where the warning was created)
+verify	Post Run actions/setup-node@v4	2026-10-06T03:11:37.9072719Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-52d34251daa5f65daf74fe9b36ae44200d9ed8a9f1413d93493a3c74fdbe2e8b, not saving cache.
+verify	Post Run actions/checkout@v4	﻿2026-10-06T03:11:37.9285859Z Post job cleanup.
+verify	Post Run actions/checkout@v4	2026-10-06T03:11:38.0278914Z [command]/usr/bin/git version
+verify	Post Run actions/checkout@v4	2026-10-06T03:11:38.0312191Z git version 2.55.0
+verify	Post Run actions/checkout@v4	2026-10-06T03:11:38.0363408Z Temporarily overriding HOME='/home/runner/work/_temp/a7990b49-7e89-4437-a97e-73231224430e' before making global git config changes
+verify	Post Run actions/checkout@v4	2026-10-06T03:11:38.0365411Z Adding repository directory to the temporary git global config as a safe directory
+verify	Post Run actions/checkout@v4	2026-10-06T03:11:38.0367170Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/loop-test2/loop-test2
+verify	Post Run actions/checkout@v4	2026-10-06T03:11:38.0410661Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+verify	Post Run actions/checkout@v4	2026-10-06T03:11:38.0463026Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+verify	Post Run actions/checkout@v4	2026-10-06T03:11:38.0785502Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+verify	Post Run actions/checkout@v4	2026-10-06T03:11:38.0824612Z http.https://github.com/.extraheader
+verify	Post Run actions/checkout@v4	2026-10-06T03:11:38.0844668Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+verify	Post Run actions/checkout@v4	2026-10-06T03:11:38.0897353Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+verify	Post Run actions/checkout@v4	2026-10-06T03:11:38.1220090Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+verify	Post Run actions/checkout@v4	2026-10-06T03:11:38.1276815Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+verify	Complete job	﻿2026-10-06T03:11:38.1830051Z Cleaning up orphan processes
+verify	Complete job	2026-10-06T03:11:38.2188059Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

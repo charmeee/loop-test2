@@ -48,6 +48,8 @@ flowchart LR
 
 ## 상세 문서
 
+- [npm run loop 실제 실행 결과와 원문 로그](docs/loop-run-results.md)
+
 - [실제 명령·생성 구성·사용법](docs/loop-commands.md)
 - [runner 구현 구조와 현재 범위](docs/runner-implementation.md)
 - [실제 실행·재실행 검증 결과](docs/verification.md)

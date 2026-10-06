@@ -1,0 +1,75 @@
+{
+  "issueNumber": 1,
+  "attempts": [
+    {
+      "iteration": 1,
+      "action": "implement-and-verify",
+      "outcome": "failure",
+      "error": "Checker ESCALATE_HUMAN: 기능 요구사항은 모두 통과했습니다. 다만 변경이 미커밋 상태여서 후보 SHA의 CI와 연결 PR의 검증 기록·체크리스트를 확인하지 못했습니다. 최종 승인과 사람의 코드 리뷰는 남아 있습니다.",
+      "tokensUsed": 281048
+    },
+    {
+      "iteration": 2,
+      "action": "implement-and-verify",
+      "outcome": "failure",
+      "error": "Checker ESCALATE_HUMAN: 기능과 변경 범위는 적합하지만, 읽기 전용 환경 제한으로 전체 테스트 통과를 확인하지 못했습니다. 쓰기 가능한 검증 환경에서 npm test 재실행이 필요합니다.",
+      "tokensUsed": 295014,
+      "usage": {
+        "maker": {
+          "inputTokens": 151168,
+          "cachedInputTokens": 136448,
+          "outputTokens": 1151
+        },
+        "checker": {
+          "inputTokens": 141410,
+          "cachedInputTokens": 114816,
+          "outputTokens": 1285
+        }
+      }
+    },
+    {
+      "iteration": 3,
+      "action": "implement-and-verify",
+      "outcome": "success",
+      "tokensUsed": 214986,
+      "usage": {
+        "maker": {
+          "inputTokens": 119600,
+          "cachedInputTokens": 93312,
+          "outputTokens": 1187
+        },
+        "checker": {
+          "inputTokens": 93239,
+          "cachedInputTokens": 67456,
+          "outputTokens": 960
+        }
+      }
+    }
+  ],
+  "phase": "verified",
+  "verifiedSha": "b5c034fda5620211ba4b629bb247384223cfbfb6",
+  "lastError": "Checker ESCALATE_HUMAN: 기능과 변경 범위는 적합하지만, 읽기 전용 환경 제한으로 전체 테스트 통과를 확인하지 못했습니다. 쓰기 가능한 검증 환경에서 npm test 재실행이 필요합니다.",
+  "policyChanges": [
+    {
+      "at": "2026-10-06T03:27:05.150420+00:00",
+      "reason": "User requested attempt/action/time limits instead of token gates",
+      "previousError": "npx --yes @cobusgreyling/loop-context@1.5.0 --check: ESCALATE [token-budget] — Token budget reached (281048 ≥ 23050). Escalating to avoid cost blowup.\n"
+    },
+    {
+      "at": "2026-10-06T03:37:27.113819+00:00",
+      "reason": "Fix EPERM from read-only test scratch directory; retry within the unchanged 3-attempt cap",
+      "previousError": "Checker ESCALATE_HUMAN: 기능과 변경 범위는 적합하지만, 읽기 전용 환경 제한으로 전체 테스트 통과를 확인하지 못했습니다. 쓰기 가능한 검증 환경에서 npm test 재실행이 필요합니다."
+    }
+  ],
+  "prNumber": 5,
+  "feedbackSignature": "{\"reviews\":[],\"inline\":[],\"comments\":[]}",
+  "evidence": [
+    "기준 a648263e8c375791f993d693fe080bf652fb918f 대비 추가 파일은 src/discount.mjs와 tests/discount.test.mjs뿐이며, 기존 테스트·assertion 변경이나 약화 없음.",
+    "npm test: 16개 통과, 실패·skip 0개.",
+    "npm run lint: 종료 코드 0.",
+    "독립 경계값 검증 85개 통과: 유한 number 검증, RangeError, 타입 변환 거부, 0·100% 할인, 극소·최대 금액, 반올림 없는 계산 확인.",
+    "PR 검증 기록과 exact-SHA CI 확인은 이후 coordinator 담당이며, 사람의 코드 리뷰는 미완료 상태로 유지."
+  ],
+  "tests": "> loop-test2@1.0.0 test\n> node --test tests/*.test.mjs\n\n✔ ordinary money values round to cents (0.991375ms)\n✔ money rejects non-finite inputs (0.243417ms)\n✔ quote totals valid amounts and empty lists (0.085667ms)\n✔ quote rejects invalid amounts (0.07875ms)\n✔ discount applies the percentage without rounding to cents (0.793625ms)\n✔ discount handles zero and full percentages and zero amounts (0.079709ms)\n✔ discount rejects invalid amounts with RangeError (1.204583ms)\n✔ discount rejects invalid percentages with RangeError (1.134542ms)\n✔ agent process records usage and terminates excessive work without calling a real AI (241.056916ms)\n✔ all issues run once in numeric order and a failure does not stop the queue (2.107208ms)\n✔ blocked items remain in the summary and an empty queue does no work (0.137875ms)\n✔ no CI and unfinished checks cannot approve (2.614375ms)\n✔ policy rejects CI/package modifications and large diffs (0.34925ms)\n✔ issue matching never treats issue 10 as issue 1 (0.171292ms)\n✔ unknown mode and malformed selectors are rejected (0.933708ms)\n✔ agent work counting deduplicates start/complete and enforces the action cap (1.61025ms)\nℹ tests 16\nℹ suites 0\nℹ pass 16\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 376.425542",
+  "lint": "> loop-test2@1.0.0 lint\n> node scripts/lint.mjs"
+}

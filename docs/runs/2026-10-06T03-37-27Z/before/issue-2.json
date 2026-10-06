@@ -1,0 +1,25 @@
+{
+  "issueNumber": 2,
+  "attempts": [
+    {
+      "iteration": 1,
+      "action": "implement-and-verify",
+      "outcome": "success",
+      "tokensUsed": 252418
+    }
+  ],
+  "phase": "verified",
+  "verifiedSha": "9e8fc00d12a3f58f5548471759893ef7d4c75b90",
+  "prNumber": 4,
+  "feedbackSignature": "{\"reviews\":[],\"inline\":[],\"comments\":[]}",
+  "evidence": [
+    "기준 37f192cb22d087abc29be27d141d85b326c3b4c0 대비 변경은 신규 src/statistics.mjs와 tests/statistics.test.mjs뿐입니다.",
+    "npm test: 17개 통과, 실패·skip 0개. 기존 테스트와 assertion 변경 없음.",
+    "npm run lint: 종료 코드 0.",
+    "독립 경계값 검사 통과: ±0, 음수, 소수, 유한 극값, frozen 배열과 속성 불변, 잘못된 타입, 마지막 빈 슬롯.",
+    "PR 검증 기록과 exact-SHA CI는 이후 coordinator의 책임입니다. 사람의 코드 리뷰는 미완료 상태입니다.",
+    "실제 토큰 사용량은 unknown이며, 읽기 전용 검증으로 파일·GitHub·상태 기록을 변경하지 않았습니다."
+  ],
+  "tests": "> loop-test2@1.0.0 test\n> node --test tests/*.test.mjs\n\n✔ ordinary money values round to cents (1.165583ms)\n✔ money rejects non-finite inputs (0.261583ms)\n✔ quote totals valid amounts and empty lists (0.08925ms)\n✔ quote rejects invalid amounts (0.082542ms)\n✔ no CI and unfinished checks cannot approve (0.839167ms)\n✔ policy rejects CI/package modifications and large diffs (0.296042ms)\n✔ issue matching never treats issue 10 as issue 1 (0.159125ms)\n✔ unknown mode and malformed selectors are rejected (0.877917ms)\n✔ summarizes amount count, total, and average (1.643792ms)\n✔ empty amounts return zero statistics (0.079334ms)\n✔ negative amounts are valid statistics inputs (0.062417ms)\n✔ statistics do not round fractional amounts (0.080709ms)\n✔ rejects non-array inputs (0.265959ms)\n✔ rejects non-finite and non-number array entries (0.164125ms)\n✔ rejects sparse arrays including inherited entries (0.117709ms)\n✔ handles frozen arrays without mutating inputs (0.212333ms)\n✔ preserves mutable arrays on successful and rejected input (0.136583ms)\nℹ tests 17\nℹ suites 0\nℹ pass 17\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 112.607333",
+  "lint": "> loop-test2@1.0.0 lint\n> node scripts/lint.mjs"
+}

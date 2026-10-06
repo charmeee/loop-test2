@@ -1,0 +1,63 @@
+{
+  "issueNumber": 3,
+  "attempts": [
+    {
+      "iteration": 1,
+      "action": "implement-and-verify",
+      "outcome": "failure",
+      "error": "Checker ESCALATE_HUMAN: 기능 검증은 통과했지만 읽기 전용 환경 때문에 전체 테스트 통과를 확인할 수 없습니다. 쓰기 가능한 환경에서 npm test 재실행이 필요합니다.",
+      "tokensUsed": 270145,
+      "usage": {
+        "maker": {
+          "inputTokens": 121527,
+          "cachedInputTokens": 94976,
+          "outputTokens": 1433
+        },
+        "checker": {
+          "inputTokens": 145799,
+          "cachedInputTokens": 118144,
+          "outputTokens": 1386
+        }
+      }
+    },
+    {
+      "iteration": 2,
+      "action": "implement-and-verify",
+      "outcome": "success",
+      "tokensUsed": 249770,
+      "usage": {
+        "maker": {
+          "inputTokens": 150854,
+          "cachedInputTokens": 135680,
+          "outputTokens": 1891
+        },
+        "checker": {
+          "inputTokens": 95962,
+          "cachedInputTokens": 69504,
+          "outputTokens": 1063
+        }
+      }
+    }
+  ],
+  "phase": "verified",
+  "verifiedSha": "2de0b0bc0de4620e2d07252c898911a35d2170f7",
+  "lastError": "Checker ESCALATE_HUMAN: 기능 검증은 통과했지만 읽기 전용 환경 때문에 전체 테스트 통과를 확인할 수 없습니다. 쓰기 가능한 환경에서 npm test 재실행이 필요합니다.",
+  "policyChanges": [
+    {
+      "at": "2026-10-06T03:37:27.114442+00:00",
+      "reason": "Fix EPERM from read-only test scratch directory; retry within the unchanged 3-attempt cap",
+      "previousError": "Checker ESCALATE_HUMAN: 기능 검증은 통과했지만 읽기 전용 환경 때문에 전체 테스트 통과를 확인할 수 없습니다. 쓰기 가능한 환경에서 npm test 재실행이 필요합니다."
+    }
+  ],
+  "prNumber": 6,
+  "feedbackSignature": "{\"reviews\":[],\"inline\":[],\"comments\":[]}",
+  "evidence": [
+    "기준 a648263e8c375791f993d693fe080bf652fb918f 대비 변경 범위: src/money.mjs 및 신규 tests/money.test.mjs만. 기존 테스트·assertion 약화 없음.",
+    "npm test: 17개 통과, 실패·skip 0개.",
+    "npm run lint 및 git diff --check: 통과.",
+    "독립 추가 검사 20,017개 통과: 양·음수 반올림, tie와 자리올림, 과학적 표기, 양의 0 정규화, Number.MAX_VALUE 유한성.",
+    "API와 입력 검증 유지. Number.EPSILON 추가 없이 표준 십진 문자열과 BigInt로 계산."
+  ],
+  "tests": "> loop-test2@1.0.0 test\n> node --test tests/*.test.mjs\n\n✔ ordinary money values round to cents (1.491792ms)\n✔ money rejects non-finite inputs (0.2595ms)\n✔ quote totals valid amounts and empty lists (0.101583ms)\n✔ quote rejects invalid amounts (0.092834ms)\n✔ agent process records usage and terminates excessive work without calling a real AI (264.751084ms)\n✔ all issues run once in numeric order and a failure does not stop the queue (8.313542ms)\n✔ blocked items remain in the summary and an empty queue does no work (0.176667ms)\n✔ no CI and unfinished checks cannot approve (3.461875ms)\n✔ policy rejects CI/package modifications and large diffs (1.67725ms)\n✔ issue matching never treats issue 10 as issue 1 (0.206541ms)\n✔ unknown mode and malformed selectors are rejected (0.934875ms)\n✔ agent work counting deduplicates start/complete and enforces the action cap (3.173125ms)\n✔ decimal ties round half away from zero for both signs (3.23325ms)\n✔ rounding uses the standard decimal string on either side of a tie (0.642375ms)\n✔ tiny scientific values and signed zeros produce positive zero (0.136292ms)\n✔ large finite scientific values remain unchanged and finite (0.090083ms)\n✔ money preserves finite-number input validation (0.8915ms)\nℹ tests 17\nℹ suites 0\nℹ pass 17\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 490.834459",
+  "lint": "> loop-test2@1.0.0 lint\n> node scripts/lint.mjs"
+}

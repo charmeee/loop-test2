@@ -1,0 +1,18 @@
+[
+  {
+    "pr": 4,
+    "runId": 37407798754,
+    "headSha": "9e8fc00d12a3f58f5548471759893ef7d4c75b90",
+    "conclusion": "success",
+    "url": "https://github.com/charmeee/loop-test2/actions/runs/37407798754",
+    "logCollected": true
+  },
+  {
+    "pr": 4,
+    "runId": 37407794770,
+    "headSha": "9e8fc00d12a3f58f5548471759893ef7d4c75b90",
+    "conclusion": "success",
+    "url": "https://github.com/charmeee/loop-test2/actions/runs/37407794770",
+    "logCollected": true
+  }
+]

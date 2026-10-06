@@ -1,0 +1,11 @@
+{
+  "verdict": "APPROVE",
+  "summary": "Maker 승인 제안: 할인 함수와 새 테스트 구현 완료. 최종 승인은 독립 checker가 판단합니다.",
+  "evidence": [
+    "src/discount.mjs: applyDiscount export, 유한 숫자와 범위 검증, 잘못된 입력에 RangeError, 지정된 계산식 적용.",
+    "tests/discount.test.mjs: 정상 계산, 경계값, 반올림 없음, 문자열 및 비유한 입력 거부 검증.",
+    "npm test: 16개 모두 통과. npm run lint: 통과.",
+    "새 파일 2개만 추가. 기존 테스트 변경 없음. 커밋·push·GitHub 작업 없음.",
+    "기준 HEAD: 97741931cb80e721201e2799dec23e81a650dbd7. 변경사항은 미커밋 상태이므로 candidate SHA 없음. 토큰 사용량은 unknown."
+  ]
+}

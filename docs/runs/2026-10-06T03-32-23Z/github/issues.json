@@ -1,0 +1,62 @@
+[
+  {
+    "labels": [
+      {
+        "id": "LA_kwDOU9a_bs8AAAAC7J3Btw",
+        "name": "bug",
+        "description": "Something isn't working",
+        "color": "d73a4a"
+      },
+      {
+        "id": "LA_kwDOU9a_bs8AAAAC7J4GiA",
+        "name": "loop:ready",
+        "description": "요구사항이 정리된 자동 구현 대상",
+        "color": "0E8A16"
+      }
+    ],
+    "number": 3,
+    "state": "OPEN",
+    "title": "fix: 소수 경계값과 음수 금액 반올림 수정",
+    "url": "https://github.com/charmeee/loop-test2/issues/3"
+  },
+  {
+    "labels": [
+      {
+        "id": "LA_kwDOU9a_bs8AAAAC7J3ByQ",
+        "name": "enhancement",
+        "description": "New feature or request",
+        "color": "a2eeef"
+      },
+      {
+        "id": "LA_kwDOU9a_bs8AAAAC7J4GiA",
+        "name": "loop:ready",
+        "description": "요구사항이 정리된 자동 구현 대상",
+        "color": "0E8A16"
+      }
+    ],
+    "number": 2,
+    "state": "OPEN",
+    "title": "feat: 금액 목록 통계 기능 추가",
+    "url": "https://github.com/charmeee/loop-test2/issues/2"
+  },
+  {
+    "labels": [
+      {
+        "id": "LA_kwDOU9a_bs8AAAAC7J3ByQ",
+        "name": "enhancement",
+        "description": "New feature or request",
+        "color": "a2eeef"
+      },
+      {
+        "id": "LA_kwDOU9a_bs8AAAAC7J4GiA",
+        "name": "loop:ready",
+        "description": "요구사항이 정리된 자동 구현 대상",
+        "color": "0E8A16"
+      }
+    ],
+    "number": 1,
+    "state": "OPEN",
+    "title": "feat: 견적 할인 계산 기능 추가",
+    "url": "https://github.com/charmeee/loop-test2/issues/1"
+  }
+]

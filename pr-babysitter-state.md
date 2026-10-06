@@ -1,4 +1,4 @@
 # PR state
-- PR #4: verified
-- SHA: 9e8fc00d12a3f58f5548471759893ef7d4c75b90
+- PR #6: verified
+- SHA: 2de0b0bc0de4620e2d07252c898911a35d2170f7
 - Merge: forbidden

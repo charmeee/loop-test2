@@ -1,0 +1,54 @@
+[
+  {
+    "run": "run-1791257547423-issue-1",
+    "role": "checker",
+    "observedTurns": 1,
+    "toolActions": 5,
+    "usage": {
+      "input_tokens": 141410,
+      "cached_input_tokens": 114816,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1285,
+      "reasoning_output_tokens": 9
+    }
+  },
+  {
+    "run": "run-1791257547423-issue-1",
+    "role": "maker",
+    "observedTurns": 1,
+    "toolActions": 6,
+    "usage": {
+      "input_tokens": 151168,
+      "cached_input_tokens": 136448,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1151,
+      "reasoning_output_tokens": 15
+    }
+  },
+  {
+    "run": "run-1791257635167-issue-3",
+    "role": "checker",
+    "observedTurns": 1,
+    "toolActions": 7,
+    "usage": {
+      "input_tokens": 145799,
+      "cached_input_tokens": 118144,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1386,
+      "reasoning_output_tokens": 22
+    }
+  },
+  {
+    "run": "run-1791257635167-issue-3",
+    "role": "maker",
+    "observedTurns": 1,
+    "toolActions": 6,
+    "usage": {
+      "input_tokens": 121527,
+      "cached_input_tokens": 94976,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1433,
+      "reasoning_output_tokens": 74
+    }
+  }
+]

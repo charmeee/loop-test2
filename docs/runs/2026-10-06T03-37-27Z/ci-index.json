@@ -1,0 +1,50 @@
+[
+  {
+    "pr": 6,
+    "runId": 37410113464,
+    "headSha": "2de0b0bc0de4620e2d07252c898911a35d2170f7",
+    "conclusion": "success",
+    "url": "https://github.com/charmeee/loop-test2/actions/runs/37410113464",
+    "logCollected": true
+  },
+  {
+    "pr": 6,
+    "runId": 37410109333,
+    "headSha": "2de0b0bc0de4620e2d07252c898911a35d2170f7",
+    "conclusion": "success",
+    "url": "https://github.com/charmeee/loop-test2/actions/runs/37410109333",
+    "logCollected": true
+  },
+  {
+    "pr": 5,
+    "runId": 37409948413,
+    "headSha": "b5c034fda5620211ba4b629bb247384223cfbfb6",
+    "conclusion": "success",
+    "url": "https://github.com/charmeee/loop-test2/actions/runs/37409948413",
+    "logCollected": true
+  },
+  {
+    "pr": 5,
+    "runId": 37409943728,
+    "headSha": "b5c034fda5620211ba4b629bb247384223cfbfb6",
+    "conclusion": "success",
+    "url": "https://github.com/charmeee/loop-test2/actions/runs/37409943728",
+    "logCollected": true
+  },
+  {
+    "pr": 4,
+    "runId": 37407798754,
+    "headSha": "9e8fc00d12a3f58f5548471759893ef7d4c75b90",
+    "conclusion": "success",
+    "url": "https://github.com/charmeee/loop-test2/actions/runs/37407798754",
+    "logCollected": true
+  },
+  {
+    "pr": 4,
+    "runId": 37407794770,
+    "headSha": "9e8fc00d12a3f58f5548471759893ef7d4c75b90",
+    "conclusion": "success",
+    "url": "https://github.com/charmeee/loop-test2/actions/runs/37407794770",
+    "logCollected": true
+  }
+]

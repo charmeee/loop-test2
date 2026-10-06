@@ -1,0 +1,46 @@
+{
+  "issueNumber": 1,
+  "attempts": [
+    {
+      "iteration": 1,
+      "action": "implement-and-verify",
+      "outcome": "failure",
+      "error": "Checker ESCALATE_HUMAN: 기능 요구사항은 모두 통과했습니다. 다만 변경이 미커밋 상태여서 후보 SHA의 CI와 연결 PR의 검증 기록·체크리스트를 확인하지 못했습니다. 최종 승인과 사람의 코드 리뷰는 남아 있습니다.",
+      "tokensUsed": 281048
+    },
+    {
+      "iteration": 2,
+      "action": "implement-and-verify",
+      "outcome": "failure",
+      "error": "Checker ESCALATE_HUMAN: 기능과 변경 범위는 적합하지만, 읽기 전용 환경 제한으로 전체 테스트 통과를 확인하지 못했습니다. 쓰기 가능한 검증 환경에서 npm test 재실행이 필요합니다.",
+      "tokensUsed": 295014,
+      "usage": {
+        "maker": {
+          "inputTokens": 151168,
+          "cachedInputTokens": 136448,
+          "outputTokens": 1151
+        },
+        "checker": {
+          "inputTokens": 141410,
+          "cachedInputTokens": 114816,
+          "outputTokens": 1285
+        }
+      }
+    }
+  ],
+  "phase": "retry-ready",
+  "verifiedSha": null,
+  "lastError": "Checker ESCALATE_HUMAN: 기능과 변경 범위는 적합하지만, 읽기 전용 환경 제한으로 전체 테스트 통과를 확인하지 못했습니다. 쓰기 가능한 검증 환경에서 npm test 재실행이 필요합니다.",
+  "policyChanges": [
+    {
+      "at": "2026-10-06T03:27:05.150420+00:00",
+      "reason": "User requested attempt/action/time limits instead of token gates",
+      "previousError": "npx --yes @cobusgreyling/loop-context@1.5.0 --check: ESCALATE [token-budget] — Token budget reached (281048 ≥ 23050). Escalating to avoid cost blowup.\n"
+    },
+    {
+      "at": "2026-10-06T03:37:27.113819+00:00",
+      "reason": "Fix EPERM from read-only test scratch directory; retry within the unchanged 3-attempt cap",
+      "previousError": "Checker ESCALATE_HUMAN: 기능과 변경 범위는 적합하지만, 읽기 전용 환경 제한으로 전체 테스트 통과를 확인하지 못했습니다. 쓰기 가능한 검증 환경에서 npm test 재실행이 필요합니다."
+    }
+  ]
+}

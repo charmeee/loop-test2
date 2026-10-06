@@ -1,0 +1,26 @@
+[
+  {
+    "headRefName": "issue/3-implementation",
+    "headRefOid": "2de0b0bc0de4620e2d07252c898911a35d2170f7",
+    "number": 6,
+    "state": "OPEN",
+    "title": "fix: 소수 경계값과 음수 금액 반올림 수정",
+    "url": "https://github.com/charmeee/loop-test2/pull/6"
+  },
+  {
+    "headRefName": "issue/1-implementation",
+    "headRefOid": "b5c034fda5620211ba4b629bb247384223cfbfb6",
+    "number": 5,
+    "state": "OPEN",
+    "title": "feat: 견적 할인 계산 기능 추가",
+    "url": "https://github.com/charmeee/loop-test2/pull/5"
+  },
+  {
+    "headRefName": "issue/2-implementation",
+    "headRefOid": "9e8fc00d12a3f58f5548471759893ef7d4c75b90",
+    "number": 4,
+    "state": "OPEN",
+    "title": "feat: 금액 목록 통계 기능 추가",
+    "url": "https://github.com/charmeee/loop-test2/pull/4"
+  }
+]
