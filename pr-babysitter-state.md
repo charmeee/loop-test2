@@ -1,23 +1,4 @@
-# PR Babysitter State
-
-Last run: never
-
-## Watched PRs
-
-<!-- - #1234 (branch-name)
-  Checks: passing | failing | pending | absent/unknown
-  Required-check policy: known and satisfied | known and unsatisfied | unknown
-  Reviews: approved 1 | changes requested | review required | absent/unknown
-  Mergeability: clean | conflicts | unknown
-  Ready to merge: yes | no — reason
-  Attempts: 0/3
-  Last action: —
-  Human decision: —
--->
-
-## Escalated (human required)
-
-## Resolved (last 7d)
-
----
-Run log: —
+# PR state
+- PR #4: verified
+- SHA: 9e8fc00d12a3f58f5548471759893ef7d4c75b90
+- Merge: forbidden

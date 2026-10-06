@@ -11,7 +11,7 @@ export function assertPaths(paths) {
   if (!paths.length || paths.length > 5 || paths.some(p => !/^(src|tests)\/[^/]+\.mjs$/.test(p))) throw new Error(`허용 범위 위반: ${paths.join(', ')}`);
 }
 export function ciStatus(checks) {
-  if (!checks.length) return 'unknown';
+  if (!checks.length || !checks.some(c => c.name === 'verify')) return 'unknown';
   if (checks.some(c => (c.status && c.status !== 'COMPLETED') || c.state === 'PENDING')) return 'pending';
   return checks.every(c => c.conclusion === 'SUCCESS' || c.state === 'SUCCESS') ? 'success' : 'failure';
 }

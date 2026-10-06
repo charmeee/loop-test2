@@ -1,4 +1,4 @@
-# Loop Budget — YOUR_PROJECT
+# Loop Budget — charmeee/loop-test2
 
 > Primary loop: **PR Babysitter** (scaffolded by loop-init)
 

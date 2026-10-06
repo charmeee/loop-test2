@@ -48,6 +48,7 @@ flowchart LR
 
 - [실제 명령·생성 구성·사용법](docs/loop-commands.md)
 - [runner 구현 구조와 현재 범위](docs/runner-implementation.md)
+- [실제 실행·재실행 검증 결과](docs/verification.md)
 - [공식 Loop Engineering](https://github.com/cobusgreyling/loop-engineering)
 
 ## 프로젝트 검증
