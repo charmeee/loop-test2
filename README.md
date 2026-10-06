@@ -1,6 +1,7 @@
 # 이슈 기반 개발 실험
 
-저장소: https://github.com/charmeee/loop-test2  
+저장소: https://github.com/charmeee/loop-test2
+
 로컬: `/Users/jeonminji/company/loop-engineer-test2`
 
 작은 Node.js 견적 계산기와 개발할 이슈를 준비한 저장소입니다. 초기 PR은 만들지 않습니다. Loop Engineering 설치·AI runner·예약 실행은 사용자가 아래 안내를 따라 직접 연결합니다. 현재 CI는 애플리케이션 테스트만 실행합니다.
@@ -26,9 +27,9 @@ main은 기본 테스트 4개가 통과합니다. 할인과 통계 기능은 아
 
 | 작업 | 구현 대상 | 주요 완료 조건 |
 |---|---|---|
-| 할인 계산 기능 | `src/discount.mjs` | 할인율 범위·금액 검증, 0/100% 처리 |
-| 금액 목록 통계 | `src/statistics.mjs` | count/total/average, 빈 목록, 입력 검증 |
-| 소수 경계값 반올림 수정 | `src/money.mjs` | 양수·음수 half-away-from-zero, 과학적 표기 |
+| [#1 할인 계산 기능](https://github.com/charmeee/loop-test2/issues/1) | `src/discount.mjs` | 할인율 범위·금액 검증, 0/100% 처리 |
+| [#2 금액 목록 통계](https://github.com/charmeee/loop-test2/issues/2) | `src/statistics.mjs` | count/total/average, 빈 목록, 입력 검증 |
+| [#3 소수 경계값 반올림 수정](https://github.com/charmeee/loop-test2/issues/3) | `src/money.mjs` | 양수·음수 half-away-from-zero, 과학적 표기 |
 
 GitHub 이슈 본문에 API·예제·완료 조건을 명시했습니다. `loop:ready` 라벨을 자동 구현 대상 지정에 사용합니다. 이 라벨은 이 저장소의 운영 규칙이며 공식 필수 라벨은 아닙니다.
 
